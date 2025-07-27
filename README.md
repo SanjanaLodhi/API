@@ -50,9 +50,6 @@ _(Previous setup content remains unchanged...)_
 | `/sales/{id}`     | DELETE | Delete sale record               |
 | `/sales/stats`    | GET    | Get sales statistics            |
 
-### 💡 API Examples
-
-**1. Create Sale**
 ```bash
 POST /sales
 ## 🏗️ PostgreSQL Table Schema
@@ -71,6 +68,28 @@ CREATE TABLE iphone_sales (
     store_location VARCHAR(100) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
+## 🧪 Testing the API
+
+### **Method 1: Using cURL**
+
+#### **1. Create a New Sale**
+```bash
+curl -X 'POST' \
+  'http://localhost:8000/sales' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "customer_name": "Test User",
+    "phone_model": "iPhone15",
+    "color": "Midnight",
+    "storage_gb": 128,
+    "price": 899.99,
+    "sale_date": "2023-12-15",
+    "store_location": "Test Store"
+  }'
+
+
 
 
 
